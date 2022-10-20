@@ -9,15 +9,15 @@ def file_back_n(src: str, dsts: list, filetype: str) -> None:
     path_list.pop()
     print('待处理文件数量:', len(path_list))
     for p in path_list:
-        ds_len = len(dsts)
-        for ds in dsts:
-            ds_obj = pathlib.Path(ds)
+        dsts_len = len(dsts)
+        for dst in dsts:
+            ds_obj = pathlib.Path(dst)
             ds_obj.mkdir(parents=True, exist_ok=True)
             dist_path = ds_obj.joinpath(pathlib.Path(p).relative_to(src))
             if not dist_path.parent.exists():
                 dist_path.parent.mkdir(parents=True)
-            ds_len -= 1
-            if ds_len == 0:
+            dsts_len -= 1
+            if dsts_len == 0:
                 shutil.move(p, dist_path, copy_function=shutil.copy)
             else:
                 shutil.copy(p, dist_path)
