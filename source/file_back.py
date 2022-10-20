@@ -35,4 +35,4 @@ def run(src, dsts, filetype):
 if __name__ == '__main__':
     path1 = r'E:\temp'
     path2 = [r'E:\ok', r'E:/ok1']
-    run(path1, path2, filetype='DAT')
+    run(src=path1, dsts=path2, filetype='DAT')
